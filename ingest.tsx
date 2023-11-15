@@ -16,7 +16,7 @@ async function indexTextData() {
   const textBlob = new Blob(['Hello Vecto']);
 
   const textDataParams: IndexDataRequest = {
-    vectorSpaceId: process.env.VECTOR_SPACE_ID,
+    vectorSpaceId: Number(process.env.VECTOR_SPACE_ID),
     modality: 'TEXT',
     attributes: [JSON.stringify('sample metadata')],
     input: [textBlob],
@@ -32,20 +32,23 @@ async function indexTextData() {
 
 indexTextData();
 
+import fs from 'fs';
+
 async function indexImageData() {
   const indexApi = new IndexApi(config);
-  const textBlob = new Blob(['Hello Vecto']);
+  const fileContent = fs.readFileSync('bread.png');
+  const imageBlob = new Blob([fileContent]);
 
-  const textDataParams: IndexDataRequest = {
-    vectorSpaceId: process.env.VECTOR_SPACE_ID,
-    modality: 'TEXT',
+  const ImageDataParams: IndexDataRequest = {
+    vectorSpaceId: Number(process.env.VECTOR_SPACE_ID),
+    modality: 'IMAGE',
     attributes: [JSON.stringify('sample metadata')],
-    input: [textBlob],
+    input: [imageBlob],
   };
 
   try {
-    const result = await indexApi.indexData(textDataParams);
-    console.log('Text data indexed successfully:', result);
+    const result = await indexApi.indexData(ImageDataParams);
+    console.log('Image data indexed successfully:', result);
   } catch (error) {
     console.error('Error indexing data:', error);
   }
