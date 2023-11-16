@@ -6,10 +6,11 @@
   },
   "devDependencies": {
     "@types/node": "^20.9.0",
-    "@xpressai/vecto-client": "^0.0.8",
+    "csv-parse": "^5.5.2",
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@xpressai/vecto-client": "^0.0.10",
     "dotenv": "^16.3.1"
   }
 }
