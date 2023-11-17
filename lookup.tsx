@@ -23,7 +23,7 @@ async function lookupTextData() {
 
   try {
     const results = await lookupApi.lookup(textParams);
-    console.log("Text lookup results: ", results);
+    console.log("Text lookup results: ", JSON.stringify(results, null, 2));
   } catch (error) {
     console.error('Error lookup data:', error);
   }
@@ -48,7 +48,7 @@ async function lookupImageData() {
 
   try {
     const results = await lookupApi.lookup(ImageParams);
-    console.log("Image lookup results: ", results);
+    console.log("Image lookup results: ", JSON.stringify(results, null, 2));
   } catch (error) {
     console.error('Error lookup data:', error);
   }

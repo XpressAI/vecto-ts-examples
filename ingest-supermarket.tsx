@@ -56,6 +56,6 @@ parse(fileContent, {
   delimiter: ';',
   columns: headers,
   fromLine: 2 // Start parsing from line 2, skipping the header row
-}, (_, result) => {
+}, (error, result) => {
   indexInventoryTextData(result);
 });
