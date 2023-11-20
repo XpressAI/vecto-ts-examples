@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import fs from 'fs';
 import { parse } from 'csv-parse';
 import {
   Configuration,
@@ -22,7 +22,7 @@ type InventoryItem = {
 
 async function indexInventoryTextData(inventoryItems: InventoryItem[]) {
   const indexApi = new IndexApi(config);
-  const batchSize = 10;
+  const batchSize = 256;
 
   for (let i = 1; i < inventoryItems.length; i += batchSize) {
     const batch = inventoryItems.slice(i, i + batchSize);
