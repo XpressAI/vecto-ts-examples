@@ -4,11 +4,8 @@ import {
   IndexDataRequest,
 } from '@xpressai/vecto-client';
 
-import dotenv from 'dotenv';
-dotenv.config();
-
 const config = new Configuration({
-  accessToken: process.env.VECTO_USER_TOKEN,
+  accessToken: 'your-vecto-token',
 });
 
 async function indexTextData() {
@@ -16,7 +13,7 @@ async function indexTextData() {
   const textBlob = new Blob(['Hello Vecto']);
 
   const textDataParams: IndexDataRequest = {
-    vectorSpaceId: Number(process.env.VECTOR_SPACE_ID),
+    vectorSpaceId: 0, // update with your vector space ID
     modality: 'TEXT',
     attributes: [JSON.stringify('sample metadata')],
     input: [textBlob],
@@ -40,7 +37,7 @@ async function indexImageData() {
   const imageBlob = new Blob([fileContent]);
 
   const ImageDataParams: IndexDataRequest = {
-    vectorSpaceId: Number(process.env.VECTOR_SPACE_ID),
+    vectorSpaceId: 0, // update with your vector space ID
     modality: 'IMAGE',
     attributes: [JSON.stringify('sample metadata')],
     input: [imageBlob],

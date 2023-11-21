@@ -3,12 +3,9 @@ import {
     IndexApi,
     IndexDataRequest,
   } from '@xpressai/vecto-client';
-  
-  import dotenv from 'dotenv';
-  dotenv.config();
-  
+
   const config = new Configuration({
-    accessToken: process.env.VECTO_USER_TOKEN,
+    accessToken: 'your-vector-space-id',
   });
   
 async function indexTextData() {
@@ -32,7 +29,7 @@ async function indexTextData() {
     const attributes = foodItems.map(item => JSON.stringify({ name: item.name, description: item.description }));
 
     const textDataParams: IndexDataRequest = {
-        vectorSpaceId: Number(process.env.VECTOR_SPACE_ID),
+        vectorSpaceId: 0, // update with your vector space ID
         modality: 'TEXT',
         attributes: attributes,
         input: blobs,

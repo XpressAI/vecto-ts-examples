@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@xpressai/vecto-client": "^0.0.10"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.3",
+    "typescript": "^5.3.2"
+  }
+}
